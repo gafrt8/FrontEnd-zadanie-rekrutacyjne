@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+	<meta charset="utf-8">
+	<title>Zadanie 1</title>
+	<meta name="description" content="Layout i RWD">
+	<meta name="author" content="Grzegorz Fijałkowski">
+	
+	<style>
+		body {
+			background: white;
+			color: green;
+			margin: 0px;
+		}
+		html, body, main, aside {
+			height: 100%;
+			width: 100%;
+		}
+		.header, .footer{
+			background: #191B21;
+			width: 100%;
+			height: 100px;
+		}
+		.middle {
+			width: 100%;
+			height: calc(100% - 200px);
+			padding-top: 15px;
+			padding-bottom: 15px;
+			box-sizing: border-box;
+		}
+		.sidebar__content {
+			background: #6C757D;
+			width: 400px;
+			height: 50%;
+			float: left;
+		}
+		.main {
+			width: calc(100% - 400px);
+			height: 100%;
+			float: left;
+		}
+		.sidebar {
+			height: 100%;
+			float: left;
+		}
+		.main__content {
+			width: 100%;
+			height: 100%;
+			float: left;
+		}
+		.main__tile {
+			background: #343A40;
+			width: 10%;
+			height: 10%;
+			float: left;
+		}/*
+		.main__tile:last-child {
+			margin-bottom: 15px;
+		}*/
+		/*--------------------------------------------------------
+		@media (min-width: 600px) and (max-width: 899px) {
+			body {
+				background: blue;
+			}
+			.sidebar__content {
+				width: 100%;
+			}
+			.main__tile {
+				width: 100%;
+			}
+		}
+		@media (min-width: 900px) and (max-width: 1199px) {
+			body {
+				background: green;
+			}
+			.sidebar__content {
+				
+			}
+			.main__tile {
+				
+			}
+		}
+		@media (min-width: 1200px) {
+			body {
+				background: magenta;
+			}
+			.sidebar__content {
+				
+			}
+			.main__tile {
+				
+			}
+		}
+		--------------------------------------------------------*/
+	</style>
+	
+</head>
+
+<body>
+
+	<div class="header">
+		<header>
+			<div class="header__content">header</div>
+		</header>
+	</div>
+	
+	
+	<div class="middle">
+	
+		<div class="sidebar">
+			<aside>
+			
+				<div class="sidebar__content">sidebar</div>	
+				
+			</aside>
+		</div>
+		
+		<div class="main">
+			<main>
+				<div class="main__content">
+				
+					<div class="main__tile">tile</div>
+					
+					<div class="main__tile">tile</div>
+					
+					<div class="main__tile">tile</div>
+					
+					<div class="main__tile">tile</div>
+					
+					<div class="main__tile">tile</div>
+					
+					<div class="main__tile">tile</div>
+					
+				</div>
+			</main>
+		</div>
+		
+	</div>
+	
+	
+	<div class="footer">
+		<footer>
+			<div class="footer__content">footer</div>
+		</footer>
+	</div>
+	
+</body>
+</html>
