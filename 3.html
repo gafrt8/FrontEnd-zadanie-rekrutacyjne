@@ -3,8 +3,8 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Zadanie 1</title>
-	<meta name="description" content="Layout i RWD">
+	<title>Zadanie 3</title>
+	<meta name="description" content="Filtrowanie listy">
 	<meta name="author" content="Grzegorz Fijałkowski">
 	
 	<style>
@@ -16,6 +16,14 @@
 		html, body, section {
 			height: 100%;
 			width: 100%;
+		}
+		form {
+			text-align: center;
+			margin-top: 10px;
+		}
+		form p {
+			font-size: 18px;
+			margin: 5px 0px 5px 0px;
 		}
 		table {
 			border: 0.5px solid black;
@@ -37,41 +45,79 @@
 </head>
 
 <body>
-	<div class="table">
+	<main>
 		<section>
-			<table>
-				<tr>
-					<td>Walmart</td>
-				</tr>
-				<tr>
-					<td>State Grid</td>
-				</tr>
-				<tr>
-					<td>Sinopec Group</td>
-				</tr>
-				<tr>
-					<td>China National Petroleum</td>
-				</tr>
-				<tr>
-					<td>Royal Dutch Shell</td>
-				</tr>
-				<tr>
-					<td>Toyota Motor</td>
-				</tr>
-				<tr>
-					<td>Volkswagen</td>
-				</tr>
-				<tr>
-					<td>BP</td>
-				</tr>
-				<tr>
-					<td>Exxon Mobil</td>
-				</tr>
-				<tr>
-					<td>Berkshire Hathaway</td>
-				</tr>
+			<form class="form" onsubmit="return false;">
+				<p>Wpisz frazę filtrującą:</p>
+				<input type="text" class="form__input--phrase" placeholder="np. nope">
+				<input type="submit" class="button" onclick="filter();" value="Filtruj">
+			</form> 
+		</section>
+		
+		<section>
+			<table class="table">
+				
 			</table>
 		</section>
-	</div>
+	</main>
+	
+	<script>
+		var data = [
+			"Walmart",
+			"State Grid",
+			"Sinopec Group",
+			"China National Petroleum",
+			"Royal Dutch Shell",
+			"Toyota Motor",
+			"Volkswagen",
+			"BP",
+			"Exxon Mobil",
+			"Berkshire Hathaway"
+		];
+		var openRaw = "<tr><td>";
+		var closeRaw = "</td></tr>";
+		
+		document.querySelector('.form__input--phrase').addEventListener('keypress', function (e) {
+			var key = e.which || e.keyCode;
+			if (key === 13) { // 13 is enter
+				filter();
+			}
+		});
+		
+		function filter() {
+			var raws = [];
+			var phrase = document.getElementsByClassName('form__input--phrase')[0].value;
+			phrase = phrase.toLowerCase();
+			console.log(phrase);
+			if(phrase == "") {
+				raws = -1;
+			}
+			else {
+				for(var i=0; i < data.length; i++) {
+					if(data[i].toLowerCase().search(phrase) != -1)
+						raws.push(i);
+				}
+			}
+			showRaws(raws);
+		}
+		
+		function showRaws(raws) {
+			var content = "";
+			if(raws == -1) {
+				content = openRaw + data.join(closeRaw+openRaw) + closeRaw;
+			}
+			else if(raws == []) {
+				content = "Sorry. There's no matching results.";
+			}
+			else {
+				for(var i=0; i < raws.length; i++) {
+					content += openRaw + data[raws[i]] + closeRaw;
+				}
+			}
+			document.getElementsByClassName('table')[0].innerHTML = content;
+		}
+	</script>
 </body>
 </html>
+
+
