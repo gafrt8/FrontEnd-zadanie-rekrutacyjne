@@ -13,10 +13,6 @@
 			color: green;
 			margin: 0px;
 		}
-		html, body, section, .noModal {
-			height: 100%;
-			width: 100%;
-		}
 		a {
 			text-decoration: none;
 			color: #E78300;
@@ -63,7 +59,10 @@
 			width: 80%;
 		}
 		.modal__button--closeModal {
-			margin-left: 83%;
+			position: absolute;
+			right: 8px;
+			bottom: 6px;
+			padding-top: 2px;
 		}
 	</style>
 	
@@ -72,9 +71,9 @@
 <body>
 	<!-- Trigger/Open The Modal -->
 	<div class="noModal">
-		<section>
+		<main>
 			<button class="button noModal__button--openModal">Open Modal</button>
-		</section>
+		</main>
 	</div>
 
 	<!-- The Modal -->
@@ -82,9 +81,13 @@
 		<section>
 			<!-- Modal content -->
 			<div class="modal__content">
-				<a href="3.html" target="_blank" title="Link to 3.html">Open 3.html</a>
-				<br>
-				<button class="button modal__button--closeModal">Close Modal</button>
+				<nav>
+					<a href="3.html" target="_blank" title="Link to 3.html">Open 3.html</a>
+				</nav>
+				
+				<section>
+					<button class="button modal__button--closeModal">Close Modal</button>
+				</section>
 			</div>
 		</section>
 	</div>
