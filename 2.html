@@ -26,7 +26,7 @@
 			text-decoration: underline;
 			font-weight: 800;
 			color: orange;
-			margin-left: 0.6em;
+			margin-left: 0.64em;
 		}
 		.button:hover {
 			cursor: pointer;
@@ -48,17 +48,19 @@
 			top: 0;
 			width: 100%; /* Full width */
 			height: 100%; /* Full height */
-			overflow: auto; /* Enable scroll if needed */
 			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 		}
 
 		/* Modal Content/Box */
 		.modal__content {
 			background-color: black;
-			margin: 25% auto; /* 15% from the top and centered */
+			position: absolute;
+			top: 30%;
+			left: 10%;
 			padding: 20px;
 			border: 3px solid black;
-			width: 80%; /* Could be more or less, depending on screen size */
+			box-sizing: border-box;
+			width: 80%;
 		}
 		.modal__button--closeModal {
 			margin-left: 83%;
@@ -77,14 +79,14 @@
 
 	<!-- The Modal -->
 	<div class="modal" onselectstart="return false;">
-
-		<!-- Modal content -->
-		<div class="modal__content">
-			<a href="1.html" target="_blank" title="Link to 3.html">Open 3.html</a>
-			<br>
-			<button class="button modal__button--closeModal">Close Modal</button>
-		</div>
-
+		<section>
+			<!-- Modal content -->
+			<div class="modal__content">
+				<a href="3.html" target="_blank" title="Link to 3.html">Open 3.html</a>
+				<br>
+				<button class="button modal__button--closeModal">Close Modal</button>
+			</div>
+		</section>
 	</div>
 
 	<script>
